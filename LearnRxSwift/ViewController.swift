@@ -9,49 +9,33 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
-
-
-
 class ViewController: UIViewController {
   
-  private var viewModel = ProductViewModel()
-  private var bag = DisposeBag()
+  let tableItem = Observable.just(["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"])
+  let disposeBag = DisposeBag()
   
-  private let tableView : UITableView = {
-    let tablle = UITableView()
-    tablle.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    return tablle
+  private let tableView: UITableView = {
+    let table = UITableView()
+    table.translatesAutoresizingMaskIntoConstraints = false
+    table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    return table
   }()
   
-  
-
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addSubview(tableView)
     tableView.frame = view.bounds
-    bindTableData()
- 
+    tableViewItems()
   }
-  
-  func bindTableData() {
-    //Binds items to table
-    viewModel.items.bind(
-      to: tableView.rx.items(
-        cellIdentifier: "cell",
-        cellType: UITableViewCell.self)
-    ){ row, model , cell in
-      cell.textLabel?.text = model.title
-      cell.imageView?.image = UIImage(systemName: model.imageName)
-    }.disposed(by: bag)
-    
-    //Bind a model selected handler
-//    tableView.rx.modelSelected(Product.self).bind { product in
-//      print(product.title)
-//    }
-    //fetch item
-    viewModel.fetcItems()
-    
+
+  func tableViewItems() {
+    tableItem.bind(
+      to: tableView
+        .rx
+        .items(cellIdentifier: "cell")) {
+      (tv, tableItems, cell) in cell.textLabel?.text = tableItems
+    }
+    .disposed(by: disposeBag)
   }
 }
 
