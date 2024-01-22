@@ -9,33 +9,60 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+let viewmodel = FoodViewModel()
 class ViewController: UIViewController {
   
-  let tableItem = Observable.just(["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"])
-  let disposeBag = DisposeBag()
-  
-  private let tableView: UITableView = {
-    let table = UITableView()
-    table.translatesAutoresizingMaskIntoConstraints = false
-    table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    return table
-  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addSubview(tableView)
+    self.title = "Menu"
     tableView.frame = view.bounds
     tableViewItems()
   }
-
+  
+  let tableItem = Observable.just([
+    Food(name: "Hamburger", image: "humberger"),
+    Food(name: "Pizza", image: "pizza"),
+    Food(name: "Salmon", image: "salmon"),
+    Food(name: "Spagethi", image: "spaghetti")
+  ])
+  let disposeBag = DisposeBag()
+  
+  
+  private let tableView: UITableView = {
+    let table = UITableView()
+    table.translatesAutoresizingMaskIntoConstraints = false
+    table.register(FoodTableViewCell.self, forCellReuseIdentifier: FoodTableViewCell.identifier)
+    return table
+  }()
+  
+  
   func tableViewItems() {
     tableItem.bind(
       to: tableView
         .rx
-        .items(cellIdentifier: "cell")) {
-      (tv, tableItems, cell) in cell.textLabel?.text = tableItems
-    }
-    .disposed(by: disposeBag)
+        .items(cellIdentifier: FoodTableViewCell.identifier, cellType: FoodTableViewCell.self)){
+          (tv, tableItems, cell) in
+          cell.nameFood.text = tableItems.name
+          cell.imageFood.image = UIImage.init(named: tableItems.image)
+          
+        }
+        .disposed(by: disposeBag)
+    
+    tableView
+      .rx.setDelegate(self)
+      .disposed(by: disposeBag)
   }
 }
 
+extension ViewController: UITableViewDelegate, didtapRow {
+  func didtapRow(_ cell: DetailViewController) {
+    let vc = DetailViewController()
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 120
+  }
+}

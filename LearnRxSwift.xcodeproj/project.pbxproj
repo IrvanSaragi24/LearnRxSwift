@@ -13,8 +13,10 @@
 		E2E2D8F82B5ACF01009ED90B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D8F72B5ACF01009ED90B /* ViewController.swift */; };
 		E2E2D8FD2B5ACF02009ED90B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E2D8FC2B5ACF02009ED90B /* Assets.xcassets */; };
 		E2E2D9002B5ACF02009ED90B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2E2D8FE2B5ACF02009ED90B /* LaunchScreen.storyboard */; };
-		E2E2D9082B5B825E009ED90B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D9072B5B825E009ED90B /* Model.swift */; };
+		E2E2D9082B5B825E009ED90B /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D9072B5B825E009ED90B /* Food.swift */; };
 		E2E2D90A2B5B828D009ED90B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D9092B5B828D009ED90B /* ViewModel.swift */; };
+		E2E2D90D2B5CE10B009ED90B /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D90C2B5CE10B009ED90B /* FoodTableViewCell.swift */; };
+		E2E2D90F2B5CE318009ED90B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D90E2B5CE318009ED90B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +30,10 @@
 		E2E2D8FC2B5ACF02009ED90B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2E2D8FF2B5ACF02009ED90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2E2D9012B5ACF02009ED90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2E2D9072B5B825E009ED90B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E2E2D9072B5B825E009ED90B /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		E2E2D9092B5B828D009ED90B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E2E2D90C2B5CE10B009ED90B /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		E2E2D90E2B5CE318009ED90B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,15 +78,25 @@
 			isa = PBXGroup;
 			children = (
 				E2E2D8F32B5ACF01009ED90B /* AppDelegate.swift */,
-				E2E2D9072B5B825E009ED90B /* Model.swift */,
+				E2E2D90B2B5CE0E5009ED90B /* Model */,
 				E2E2D9092B5B828D009ED90B /* ViewModel.swift */,
 				E2E2D8F52B5ACF01009ED90B /* SceneDelegate.swift */,
 				E2E2D8F72B5ACF01009ED90B /* ViewController.swift */,
+				E2E2D90C2B5CE10B009ED90B /* FoodTableViewCell.swift */,
+				E2E2D90E2B5CE318009ED90B /* DetailViewController.swift */,
 				E2E2D8FC2B5ACF02009ED90B /* Assets.xcassets */,
 				E2E2D8FE2B5ACF02009ED90B /* LaunchScreen.storyboard */,
 				E2E2D9012B5ACF02009ED90B /* Info.plist */,
 			);
 			path = LearnRxSwift;
+			sourceTree = "<group>";
+		};
+		E2E2D90B2B5CE0E5009ED90B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2E2D9072B5B825E009ED90B /* Food.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E5918CBFD3C075AD991B4AD1 /* Pods */ = {
@@ -212,7 +226,9 @@
 				E2E2D8F82B5ACF01009ED90B /* ViewController.swift in Sources */,
 				E2E2D8F42B5ACF01009ED90B /* AppDelegate.swift in Sources */,
 				E2E2D8F62B5ACF01009ED90B /* SceneDelegate.swift in Sources */,
-				E2E2D9082B5B825E009ED90B /* Model.swift in Sources */,
+				E2E2D9082B5B825E009ED90B /* Food.swift in Sources */,
+				E2E2D90D2B5CE10B009ED90B /* FoodTableViewCell.swift in Sources */,
+				E2E2D90F2B5CE318009ED90B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

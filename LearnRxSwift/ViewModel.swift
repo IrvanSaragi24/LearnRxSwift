@@ -10,19 +10,18 @@ import RxSwift
 import RxCocoa
 
 
-struct ProductViewModel{
-  var items = PublishSubject<[Product]>()
+struct FoodViewModel{
+  var items = PublishSubject<[Food]>()
   
   func fetcItems(){
-   let products = [
-    Product(imageName: "house", title: "Home"),
-    Product(imageName: "gear", title: "Settings"),
-    Product(imageName: "person.circle", title: "Profile"),
-    Product(imageName: "airplane", title: "Flights"),
-    Product(imageName: "bell", title: "Activity"),
+   let foods = [
+    Food(name: "Hamburger", image: "humberger"),
+    Food(name: "Pizza", image: "pizza"),
+    Food(name: "Salmon", image: "salmon"),
+    Food(name: "Spagethi", image: "spaghetti"),
    ]
     
-    items.onNext(products)
+    items.onNext(foods)
     items.onCompleted()
   }
 }
